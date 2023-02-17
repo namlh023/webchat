@@ -12,7 +12,13 @@
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
     "noEmit": true,
-    "types": ["element-plus/global"]
+    "types": ["element-plus/global"],
+    "paths": {
+      // "@components": ["src/components"],
+      // "@scss": ["src/styles/scss"],
+      // "@img": ["src/assests/images"],
+      "@/*": ["./src/*"]
+    }
   },
   "include": [
     "src/**/*.ts",
@@ -22,10 +28,4 @@
     "src/stores/test.js"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
-  // "paths": {
-  //   "@components": ["src/components"],
-  //   "@scss": ["src/styles/scss"],
-  //   "@img": ["src/assests/images"],
-  //   "@": ["src"]
-  // }
 }
