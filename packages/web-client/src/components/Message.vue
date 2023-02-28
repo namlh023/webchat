@@ -1,95 +1,14 @@
 <script setup lang="ts">
-let data = [
-  {
-    message: "How are you?",
-    time: "2023/02/23 10:10AM",
-    from: "NamLH023",
-    to: "NamLH023",
-  },
-  {
-    message: "How are you?",
-    time: "2023/02/23 10:10AM",
-    from: "Harry Kane",
-    to: "NamLH023",
-  },
-  {
-    message: "How are you?",
-    time: "2023/02/23 10:10AM",
-    from: "Harry Kane",
-    to: "NamLH023",
-  },
-  {
-    message: "How are you?",
-    time: "2023/02/23 10:10AM",
-    from: "Harry Kane",
-    to: "NamLH023",
-  },
-  {
-    message: "How are you?",
-    time: "2023/02/23 10:10AM",
-    from: "Harry Kane",
-    to: "NamLH023",
-  },
-  {
-    message: "How are you?",
-    time: "2023/02/23 10:10AM",
-    from: "Harry Kane",
-    to: "NamLH023",
-  },
-  {
-    message: "How are you?",
-    time: "2023/02/23 10:10AM",
-    from: "Harry Kane",
-    to: "NamLH023",
-  },
-  {
-    message: "How are you?",
-    time: "2023/02/23 10:10AM",
-    from: "Harry Kane",
-    to: "NamLH023",
-  },
-  {
-    message: "How are you?",
-    time: "2023/02/23 10:10AM",
-    from: "Harry Kane",
-    to: "NamLH023",
-  },
-  {
-    message: "How are you?",
-    time: "2023/02/23 10:10AM",
-    from: "Harry Kane",
-    to: "NamLH023",
-  },
-  {
-    message: "How are you?",
-    time: "2023/02/23 10:10AM",
-    from: "Harry Kane",
-    to: "NamLH023",
-  },
-  {
-    message: "How are you?",
-    time: "2023/02/23 10:10AM",
-    from: "Harry Kane",
-    to: "NamLH023",
-  },
-  {
-    message: "How are you?",
-    time: "2023/02/23 10:10AM",
-    from: "Harry Kane",
-    to: "NamLH023",
-  },
-  {
-    message: "How are you?",
-    time: "2023/02/23 10:10AM",
-    from: "Harry Kane",
-    to: "NamLH023",
-  },
-];
+import { storeToRefs } from "pinia";
+import { useMessageStore } from "@/stores/message";
+
+const messageStore = useMessageStore();
+const { messages } = storeToRefs(messageStore);
 </script>
 <template>
   <div class="message">
     <div class="message__list">
-      <template v-for="message in data">
+      <template v-for="message in messages.data">
         <div class="message__content">
           <p>{{ message.message }}</p>
           <div>
@@ -118,8 +37,6 @@ let data = [
   align-items: end;
 
   &__list {
-    display: inline-block;
-    align-self: flex-end;
     width: 100%;
     margin-bottom: 50px;
     overflow-y: scroll;

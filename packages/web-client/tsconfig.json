@@ -25,7 +25,7 @@
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "src/stores/test.js"
+    "src/stores/chatList.tss"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
