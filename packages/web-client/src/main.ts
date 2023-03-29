@@ -7,7 +7,9 @@ import "./style.css";
 import "./assets/styles/main.scss";
 import App from "@/App.vue";
 import router from "@/router";
+import { setup as setupFirebase } from "@/services/firebase.service";
 
+setupFirebase();
 const app = createApp(App);
 const pinia = createPinia();
 
