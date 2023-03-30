@@ -18,6 +18,7 @@ export const useAuth = () => {
 
     try {
       const result = await signInWithPopup(auth, provider);
+      console.log("result", result);
 
       localUser.value = result.user;
     } catch (error) {
