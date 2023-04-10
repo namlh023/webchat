@@ -1,8 +1,15 @@
 import { ref, computed, reactive } from "vue";
 import { defineStore } from "pinia";
 
+interface Message {
+  message: string;
+  time: string;
+  from: string;
+  to: string;
+}
+
 export const useMessageStore = defineStore("messageStore", () => {
-  const messages = reactive({
+  const messages: { data: Message[] } = reactive({
     data: [
       {
         message: "How are you?",
@@ -31,7 +38,7 @@ export const useMessageStore = defineStore("messageStore", () => {
     ],
   });
 
-  function getMessages(id: number | string) {
+  function getMessages(id: string) {
     switch (id) {
       case "1000":
         messages.data = [

@@ -1,8 +1,15 @@
 import { ref, computed, reactive } from "vue";
 import { defineStore } from "pinia";
 
+interface Chat {
+  id: string;
+  name: string;
+  lastMessage: string;
+  time: string;
+}
+
 export const useChatStore = defineStore("chatStore", () => {
-  const chats = reactive([
+  const chats: Chat[] = reactive([
     {
       id: "1000",
       name: "Harry Kane",

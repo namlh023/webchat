@@ -15,7 +15,11 @@ const { chats } = storeToRefs(chatStore);
 </script>
 <template>
   <div class="drawer">
-    <Me :name="user.name" :id="'#' + user.id" />
+    <Me
+      :name="user.data?.displayName"
+      :id="'#' + user.data?.uid"
+      :photoURL="user.data?.photoURL"
+    />
     <div class="messages">
       <You
         v-for="chat in chats"

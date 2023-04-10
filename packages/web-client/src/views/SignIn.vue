@@ -1,11 +1,16 @@
 <script lang="ts" setup>
 import { useAuth } from "@/composables/auth/auth.composable";
+import { useUserStore } from "@/stores/user";
+import router from "@/router";
+
+const userStore = useUserStore();
 
 const auth = useAuth();
 
-function GoogleSignIn() {
+async function GoogleSignIn() {
   console.log("SIGN IN GOOGLE");
-  auth.loginInWithGoogle();
+  await auth.loginInWithGoogle(userStore);
+  router.push({ name: "Home" });
 }
 </script>
 <template>

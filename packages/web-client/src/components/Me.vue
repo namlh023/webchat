@@ -2,13 +2,14 @@
 interface Props {
   name: string;
   id: string;
+  photoURL: string;
 }
 
 const props = defineProps<Props>();
 </script>
 <template>
   <div class="me">
-    <div class="me__avatar"></div>
+    <div class="me__avatar"><img :src="props.photoURL" /></div>
     <div class="me__info">
       <div class="me__name">{{ props.name }}</div>
       <div class="me__id">{{ props.id }}</div>
@@ -30,7 +31,13 @@ const props = defineProps<Props>();
     background-color: var(--clr-orange);
     width: 40px;
     height: 40px;
-    border-radius: 50%;
+    border-radius: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 100%;
+    }
   }
 
   &__info {

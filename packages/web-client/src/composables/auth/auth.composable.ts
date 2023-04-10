@@ -6,11 +6,11 @@ import {
 } from "firebase/auth";
 import { Ref, ref } from "vue";
 
-const localUser: Ref<User | null> = ref(null);
+// const localUser: Ref<User | null> = ref(null);
 
 export const useAuth = () => {
   const auth = getAuth();
-  const loginInWithGoogle = async (): Promise<void> => {
+  const loginInWithGoogle = async (userStore: any): Promise<void> => {
     const provider = new GoogleAuthProvider();
     isLoading.value = true;
     hasFailed.value = false;
@@ -18,9 +18,8 @@ export const useAuth = () => {
 
     try {
       const result = await signInWithPopup(auth, provider);
+      await userStore.setCurrentUser(result.user);
       console.log("result", result);
-
-      localUser.value = result.user;
     } catch (error) {
       hasFailed.value = true;
       localError.value = error;
