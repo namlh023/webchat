@@ -4,6 +4,7 @@ import { Server } from "socket.io";
 import dotenv from "dotenv";
 import admin from "firebase-admin";
 
+// Fake service key
 const serviceAccount = {
   type: "service_account",
   project_id: "simple-web-chat-71a60",
